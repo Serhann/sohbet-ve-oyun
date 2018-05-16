@@ -4,7 +4,6 @@ const { RichEmbed } = require('discord.js');
 const YouTube = require("simple-youtube-api");
 const snekfetch = require("snekfetch");
 
-const Utils = require("./musicBackend.js");
 const premList = ["211566381592739851"];
 
 module.exports = class PlayCommand extends commando.Command {
