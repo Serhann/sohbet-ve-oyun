@@ -7,7 +7,7 @@ module.exports = class MusicStopCommand extends Command {
 			name: 'dur',
 			aliases: ['stop', 'kapat', 'dur'],
 			group: 'muzik',
-			memberName: 'stop',
+			memberName: 'dur',
 			description: 'Çalan müziği kapatır.',
 			guildOnly: true,
 			throttling: {
