@@ -1,14 +1,14 @@
 const { Command } = require('discord.js-commando');
 const { stripIndents } = require('common-tags');
 
-module.exports = class MusicPauseCommand extends Command {
+module.exports = class MusicStopCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'dur',
-			aliases: ['pause', 'durdur', 'paus'],
+			aliases: ['stop', 'kapat', 'dur'],
 			group: 'muzik',
-			memberName: 'dur',
-			description: 'Çalan müziği durdurur.',
+			memberName: 'stop',
+			description: 'Çalan müziği kapatır.',
 			guildOnly: true,
 			throttling: {
 				usages: 2,
@@ -18,13 +18,14 @@ module.exports = class MusicPauseCommand extends Command {
 	}
 
 	async run(msg, client) {
+		
 		const voiceChannel = msg.member.voiceChannel;
 		const serverQueue = this.client.queue.get(msg.guild.id);
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
-			serverQueue.player.pause(true);
-			return msg.channel.send('⏸ Müzik durduruldu!');
+			serverQueue.player.stop(true);
+			return
 		}
-		return msg.channel.send('Müzik çalmıyor ki? Neyi durdurmamı istiyorsun??');
+		return msg.channel.send('Şu anda çalmakta olan müzik yok.');
 	}
 };
